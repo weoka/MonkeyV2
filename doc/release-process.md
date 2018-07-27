@@ -27,7 +27,7 @@ Check out the source code in the following directory hierarchy.
     git clone https://github.com/monkeyproject/gitian.sigs.git
     git clone https://github.com/monkeyproject/monkey-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
-    git clone https://github.com/monkeyproject/monkeyv2.git
+    git clone https://github.com/monkeyproject/monkeyv2.git monkey
 
 ### Monkey maintainers/release engineers, suggestion for writing release notes
 
