@@ -6,24 +6,25 @@ Monkey (MONK) is a sustainable cryptocurrency modeled after Satoshi Nakamoto’s
 - Fast transactions featuring guaranteed zero confirmation transactions, we call it _SwiftTX_.
 - Decentralized blockchain voting providing for consensus based advancement of the current Masternode
   technology used to secure the network and provide the above features, each Masternode is secured
-  with a collateral of 2,500 MONK.
+  with a collateral of 2,000 MONK.
 
 More information at [monkey.vision](http://www.monkey.vision)
 
 ### Coin Specs
-| Block Time                  | 60 Seconds      |
-| Max Coin Supply (PoW Phase) | 500,000 MONK    |
-| Max Coin Supply (PoS Phase) | 20,500,000 MONK |
-| Premine                     | 500,000 MONK    |
+| Description                 | Value                   |
+|-----------------------------|-------------------------|
+| Block Time                  | 60 Seconds              |
+| Max Coin Supply             | 21,000,000 MONK         |
+| Premine                     | 2,160,000 MONK (Swap)   |
 
 ### Reward Distribution
 
-| **Block Height** | **Masternodes**  | **PoS**          | **Budget**      |
-|------------------|------------------|------------------|-----------------|
-| 201-5000         | 85% (0.85 MONK)  | 10% (0.1 MONK)   | 5% (0.05 MONK)  |
-| 5001-25000       | 85% (25.5 MONK)  | 10% (3 MONK)     | 5% (1.5 MONK)   |
-| 25001-100000     | 85% (17 MONK)    | 10% (2 MONK)     | 5% (1 MONK)     |
-| 100001-1050000   | 85% (8.5 MONK)   | 10% (1 MONK)     | 5% (0.5 MONK)   |
-| 1050001-2100000  | 85% (4.25 MONK)  | 10% (0.5 MONK)   | 5% (0.25 MONK)  |
-| 2100001-3150000  | 85% (2.13 MONK)  | 10% (0.25 MONK)  | 5% (0.13 MONK)  |
-| 3150001-Infinite | 85% (1.06 MONK)  | 10% (0.13 MONK)  | 5% (0.06 MONK)  |
+| **Block Height** | **Masternodes**  | **PoS**          |
+|------------------|------------------|------------------|
+| 2-5000           | 85% (0.85 MONK)  | 15% (0.15 MONK)  |
+| 5001-25000       | 85% (12.75 MONK) | 15% (2.25 MONK)  |
+| 25001-100000     | 85% (10.625 MONK)| 15% (1.875 MONK) |
+| 100001-1000000   | 85% (6.8 MONK)   | 15% (1.2 MONK)   |
+| 1000001-2000000  | 85% (3.4 MONK)   | 15% (0.6 MONK)   |
+| 2000001-3000000  | 85% (1.7 MONK)   | 15% (0.3 MONK)   |
+| 3000001-End      | 85% (0.85 MONK)  | 15% (0.15 MONK)  |
