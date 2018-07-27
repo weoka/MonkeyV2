@@ -23,8 +23,8 @@ Build-Depends: debhelper,
  libprotobuf-dev, protobuf-compiler
 Standards-Version: 3.9.2
 Homepage: http://www.monkey.vision
-Vcs-Git: git://github.com/monkeyproject/monkey.git
-Vcs-Browser: http://github.com/monkeyproject/monkey
+Vcs-Git: git://github.com/monkeyproject/monkeyv2.git
+Vcs-Browser: http://github.com/monkeyproject/monkeyv2
 
 Package: monkeyd
 Architecture: any

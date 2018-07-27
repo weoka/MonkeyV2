@@ -38,7 +38,7 @@ The following are developer notes on how to build Monkey on your native platform
 
 Development
 ---------------------
-The Monkey repo's [root README](https://github.com/monkeyproject/monkey/blob/master/README.md) contains relevant information on the development process and automated testing.
+The Monkey repo's [root README](https://github.com/monkeyproject/monkeyv2/blob/master/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)

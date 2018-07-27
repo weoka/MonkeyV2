@@ -3,7 +3,7 @@ Release Process
 
 Before every release candidate:
 
-* Update translations see [translation_process.md](https://github.com/monkeyproject/monkey/blob/master/doc/translation_process.md#synchronising-translations).
+* Update translations see [translation_process.md](https://github.com/monkeyproject/monkeyv2/blob/master/doc/translation_process.md#synchronising-translations).
 
 Before every minor and major release:
 
@@ -24,10 +24,10 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 Check out the source code in the following directory hierarchy.
 
     cd /path/to/your/toplevel/build
-    git clone https://github.com/monkey/gitian.sigs.git
+    git clone https://github.com/monkeyproject/gitian.sigs.git
     git clone https://github.com/monkeyproject/monkey-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
-    git clone https://github.com/monkeyproject/monkey.git
+    git clone https://github.com/monkeyproject/monkeyv2.git
 
 ### Monkey maintainers/release engineers, suggestion for writing release notes
 
@@ -266,6 +266,6 @@ Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spur
 
   - Archive release notes for the new version to `doc/release-notes/` (branch `master` and branch of the release)
 
-  - Create a [new GitHub release](https://github.com/monkeyproject/monkey/releases/new) with a link to the archived release notes.
+  - Create a [new GitHub release](https://github.com/monkeyproject/monkeyv2/releases/new) with a link to the archived release notes.
 
   - Celebrate

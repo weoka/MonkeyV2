@@ -281,7 +281,7 @@ Clone the git repositories for monkey and gitian and then checkout the monkey ve
 
 ```bash
 git clone https://github.com/devrandom/gitian-builder.git
-git clone https://github.com/monkeyproject/monkey.git
+git clone https://github.com/monkeyproject/monkeyv2.git
 cd monkey
 git checkout v${VERSION}
 cd ..

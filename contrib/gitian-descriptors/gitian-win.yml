@@ -22,7 +22,7 @@ packages:
 - "ca-certificates"
 - "python"
 remotes:
-- "url": "https://github.com/monkeyproject/monkey.git"
+- "url": "https://github.com/monkeyproject/monkeyv2.git"
   "dir": "monkey"
 files: []
 script: |
