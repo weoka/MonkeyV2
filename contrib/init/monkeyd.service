@@ -1,0 +1,26 @@
+[Unit]
+Description=Monkey's distributed currency daemon
+After=network.target
+
+[Service]
+User=monkey
+Group=monkey
+
+Type=forking
+PIDFile=/var/lib/monkeyd/monkeyd.pid
+
+ExecStart=/usr/bin/monkeyd -daemon -pid=/var/lib/monkeyd/monkeyd.pid \
+          -conf=/etc/monkey/monkey.conf -datadir=/var/lib/monkeyd
+
+ExecStop=-/usr/bin/monkey-cli -conf=/etc/monkey/monkey.conf \
+         -datadir=/var/lib/monkeyd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

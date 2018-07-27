@@ -1,0 +1,2 @@
+usr/local/bin/monkeyd usr/bin
+usr/local/bin/monkey-cli usr/bin
