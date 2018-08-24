@@ -140,6 +140,23 @@
       </widget>
      </item>
      <item>
+      <widget class="QPushButton" name="showAddress">
+       <property name="toolTip">
+        <string>Show the currently selected address from the list</string>
+       </property>
+       <property name="text">
+        <string>&amp;Show</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../monkey.qrc">
+         <normaloff>:/icons/edit</normaloff>:/icons/edit</iconset>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>

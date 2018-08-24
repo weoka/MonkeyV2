@@ -44,6 +44,7 @@ public:
     ~AddressBookPage();
 
     void setModel(AddressTableModel* model);
+    void setOptionsModel(OptionsModel* model);
     const QString& getReturnValue() const { return returnValue; }
 
 public slots:
@@ -52,6 +53,7 @@ public slots:
 private:
     Ui::AddressBookPage* ui;
     AddressTableModel* model;
+    OptionsModel* optionsModel;
     Mode mode;
     Tabs tab;
     QString returnValue;
@@ -73,6 +75,8 @@ private slots:
     void onEditAction();
     /** Export button clicked */
     void on_exportButton_clicked();
+    /** Show information of currently selected address entry */
+    void on_showAddress_clicked();
 
     /** Set button states based on selected tab and selection */
     void selectionChanged();

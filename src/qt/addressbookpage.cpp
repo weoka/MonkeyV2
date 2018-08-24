@@ -16,6 +16,7 @@
 #include "csvmodelwriter.h"
 #include "editaddressdialog.h"
 #include "guiutil.h"
+#include "receiverequestdialog.h"
 
 #include <QIcon>
 #include <QMenu>
@@ -35,6 +36,7 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget* parent) : QDialog
     ui->copyAddress->setIcon(QIcon());
     ui->deleteAddress->setIcon(QIcon());
     ui->exportButton->setIcon(QIcon());
+    ui->showAddress->setIcon(QIcon());
 #endif
 
     switch (mode) {
@@ -68,10 +70,12 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget* parent) : QDialog
     case SendingTab:
         ui->labelExplanation->setText(tr("These are your MONK addresses for sending payments. Always check the amount and the receiving address before sending coins."));
         ui->deleteAddress->setVisible(true);
+        ui->showAddress->setVisible(false);
         break;
     case ReceivingTab:
         ui->labelExplanation->setText(tr("These are your MONK addresses for receiving payments. It is recommended to use a new receiving address for each transaction."));
         ui->deleteAddress->setVisible(false);
+        ui->showAddress->setVisible(true);
         break;
     }
 
@@ -132,14 +136,9 @@ void AddressBookPage::setModel(AddressTableModel* model)
     ui->tableView->setModel(proxyModel);
     ui->tableView->sortByColumn(0, Qt::AscendingOrder);
 
-// Set column widths
-#if QT_VERSION < 0x050000
-    ui->tableView->horizontalHeader()->setResizeMode(AddressTableModel::Label, QHeaderView::Stretch);
-    ui->tableView->horizontalHeader()->setResizeMode(AddressTableModel::Address, QHeaderView::ResizeToContents);
-#else
+    // Set column widths
     ui->tableView->horizontalHeader()->setSectionResizeMode(AddressTableModel::Label, QHeaderView::Stretch);
     ui->tableView->horizontalHeader()->setSectionResizeMode(AddressTableModel::Address, QHeaderView::ResizeToContents);
-#endif
 
     connect(ui->tableView->selectionModel(), SIGNAL(selectionChanged(QItemSelection, QItemSelection)),
         this, SLOT(selectionChanged()));
@@ -148,6 +147,14 @@ void AddressBookPage::setModel(AddressTableModel* model)
     connect(model, SIGNAL(rowsInserted(QModelIndex, int, int)), this, SLOT(selectNewAddress(QModelIndex, int, int)));
 
     selectionChanged();
+}
+
+void AddressBookPage::setOptionsModel(OptionsModel* model)
+{
+    if (!model)
+        return;
+
+    this->optionsModel = model;
 }
 
 void AddressBookPage::on_copyAddress_clicked()
@@ -233,9 +240,11 @@ void AddressBookPage::selectionChanged()
             break;
         }
         ui->copyAddress->setEnabled(true);
+        ui->showAddress->setEnabled(true);
     } else {
         ui->deleteAddress->setEnabled(false);
         ui->copyAddress->setEnabled(false);
+        ui->showAddress->setEnabled(false);
     }
 }
 
@@ -282,6 +291,24 @@ void AddressBookPage::on_exportButton_clicked()
         QMessageBox::critical(this, tr("Exporting Failed"),
             tr("There was an error trying to save the address list to %1. Please try again.").arg(filename));
     }
+}
+
+void AddressBookPage::on_showAddress_clicked()
+{
+    QTableView* table = ui->tableView;
+    if (!table->selectionModel() || !table->model() || !table->selectionModel()->hasSelection())
+        return;
+
+    QString address = table->selectionModel()->selectedRows(AddressTableModel::Address).at(0).data(Qt::EditRole).toString();
+    QString label = table->selectionModel()->selectedRows(AddressTableModel::Label).at(0).data(Qt::EditRole).toString();
+
+    SendCoinsRecipient info(address, label, 0, "");
+
+    ReceiveRequestDialog* dialog = new ReceiveRequestDialog(this);
+    dialog->setModel(optionsModel);
+    dialog->setInfo(info);
+    dialog->setAttribute(Qt::WA_DeleteOnClose);
+    dialog->show();
 }
 
 void AddressBookPage::contextualMenu(const QPoint& point)

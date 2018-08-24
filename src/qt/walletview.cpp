@@ -422,6 +422,7 @@ void WalletView::usedReceivingAddresses()
     AddressBookPage* dlg = new AddressBookPage(AddressBookPage::ForEditing, AddressBookPage::ReceivingTab, this);
     dlg->setAttribute(Qt::WA_DeleteOnClose);
     dlg->setModel(walletModel->getAddressTableModel());
+    dlg->setOptionsModel(walletModel->getOptionsModel());
     dlg->show();
 }
 
