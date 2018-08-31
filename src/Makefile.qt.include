@@ -181,6 +181,8 @@ BITCOIN_QT_H = \
 
 RES_ICONS = \
   qt/res/icons/add.png \
+  qt/res/icons/add_hover.png \
+  qt/res/icons/add_disabled.png \
   qt/res/icons/address-book.png \
   qt/res/icons/address-book_black.png \
   qt/res/icons/bitcoin.ico \
@@ -200,13 +202,20 @@ RES_ICONS = \
   qt/res/icons/connect3_16.png \
   qt/res/icons/connect4_16.png \
   qt/res/icons/debugwindow.png \
+  qt/res/icons/delete.png \
+  qt/res/icons/delete_hover.png \
+  qt/res/icons/delete_disabled.png \
   qt/res/icons/edit.png \
   qt/res/icons/edit_black.png \
+  qt/res/icons/edit_disabled.png \
   qt/res/icons/editcopy.png \
+  qt/res/icons/editcopy_black.png \
   qt/res/icons/editpaste.png \
   qt/res/icons/editpaste_black.png \
   qt/res/icons/explorer.png \
   qt/res/icons/export.png \
+  qt/res/icons/export_hover.png \
+  qt/res/icons/export_disabled.png \
   qt/res/icons/eye.png \
   qt/res/icons/eye_minus.png \
   qt/res/icons/eye_plus.png \
@@ -226,9 +235,13 @@ RES_ICONS = \
   qt/res/icons/receive_active.png \
   qt/res/icons/remove.png \
   qt/res/icons/remove_black.png \
+  qt/res/icons/remove_disabled.png \
   qt/res/icons/send.png \
   qt/res/icons/send_active.png \
   qt/res/icons/send_black.png \
+  qt/res/icons/confirm.png \
+  qt/res/icons/confirm_hover.png \
+  qt/res/icons/confirm_disabled.png \
   qt/res/icons/staking_active.png \
   qt/res/icons/staking_inactive.png \
   qt/res/icons/synced.png \
@@ -245,7 +258,16 @@ RES_ICONS = \
   qt/res/icons/unit_umonk.png \
   qt/res/icons/unit_tmonk.png \
   qt/res/icons/unit_tmmonk.png \
-  qt/res/icons/unit_tumonk.png
+  qt/res/icons/unit_tumonk.png \
+  qt/res/icons/startall.png \
+  qt/res/icons/startall_hover.png \
+  qt/res/icons/startall_disabled.png \
+  qt/res/icons/startmissing.png \
+  qt/res/icons/startmissing_hover.png \
+  qt/res/icons/startmissing_disabled.png \
+  qt/res/icons/refresh.png \
+  qt/res/icons/refresh_hover.png \
+  qt/res/icons/refresh_disabled.png
 
 BITCOIN_QT_CPP = \
   qt/bitcoinaddressvalidator.cpp \
@@ -315,12 +337,15 @@ RES_IMAGES = \
   qt/res/images/splash_testnet.png \
   qt/res/images/downArrow_small_dark.png \
   qt/res/images/downArrow_small.png \
+  qt/res/images/downArrow_small_yellow.png \
   qt/res/images/upArrow_small_dark.png \
   qt/res/images/upArrow_small.png \
+  qt/res/images/upArrow_small_yellow.png \
   qt/res/images/leftArrow_small_dark.png \
   qt/res/images/rightArrow_small_dark.png \
   qt/res/images/qtreeview_selected.png \
-  qt/res/images/walletFrame.png
+  qt/res/images/walletFrame.png \
+  qt/res/images/bananas.png
 
 RES_CSS = \
   qt/res/css/default.css

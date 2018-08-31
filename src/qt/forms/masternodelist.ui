@@ -47,7 +47,27 @@
          <number>0</number>
         </property>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_Header" stretch="1,0">
+         <layout class="QHBoxLayout" name="horizontalLayout_Header" stretch="0,0,1">
+          <item>
+           <widget class="QLabel" name="labelOverviewHeaderLogo">
+            <property name="minimumSize">
+             <size>
+              <width>72</width>
+              <height>60</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelOverviewHeaderLeft">
+            <property name="text">
+             <string>MONK.MASTERNODES</string>
+            </property>
+           </widget>
+          </item>
           <item>
            <spacer name="horizontalSpacer">
             <property name="orientation">
@@ -60,33 +80,6 @@
              </size>
             </property>
            </spacer>
-          </item>
-          <item>
-           <widget class="QLabel" name="labelOverviewHeaderRight">
-            <property name="minimumSize">
-             <size>
-              <width>464</width>
-              <height>60</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>60</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>14</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
           </item>
          </layout>
         </item>
@@ -258,29 +251,77 @@
                   </property>
                   <item>
                    <widget class="QPushButton" name="startButton">
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton{qproperty-icon: url(&quot; &quot;);image: url(:/icons/confirm);}
+QPushButton:hover{image: url(:/icons/confirm_hover);}
+QPushButton:pressed{image: url(:/icons/confirm);}
+QPushButton:disabled{image: url(:/icons/confirm_disabled);}</string>
+                    </property>
                     <property name="text">
                      <string>S&amp;tart alias</string>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>32</width>
+                      <height>16</height>
+                     </size>
                     </property>
                    </widget>
                   </item>
                   <item>
                    <widget class="QPushButton" name="startAllButton">
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton{qproperty-icon: url(&quot; &quot;);image: url(:/icons/startall);}
+QPushButton:hover{image: url(:/icons/startall_hover);}
+QPushButton:pressed{image: url(:/icons/startall);}
+QPushButton:disabled{image: url(:/icons/startall_disabled);}</string>
+                    </property>
                     <property name="text">
                      <string>Start &amp;all</string>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>32</width>
+                      <height>16</height>
+                     </size>
                     </property>
                    </widget>
                   </item>
                   <item>
                    <widget class="QPushButton" name="startMissingButton">
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton{qproperty-icon: url(&quot; &quot;);image: url(:/icons/startmissing);}
+QPushButton:hover{image: url(:/icons/startmissing_hover);}
+QPushButton:pressed{image: url(:/icons/startmissing);}
+QPushButton:disabled{image: url(:/icons/startmissing_disabled);}</string>
+                    </property>
                     <property name="text">
                      <string>Start &amp;MISSING</string>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>32</width>
+                      <height>16</height>
+                     </size>
                     </property>
                    </widget>
                   </item>
                   <item>
                    <widget class="QPushButton" name="UpdateButton">
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton{qproperty-icon: url(&quot; &quot;);image: url(:/icons/refresh);}
+QPushButton:hover{image: url(:/icons/refresh_hover);}
+QPushButton:pressed{image: url(:/icons/refresh);}
+QPushButton:disabled{image: url(:/icons/refresh_disabled);}</string>
+                    </property>
                     <property name="text">
                      <string>&amp;Update status</string>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>32</width>
+                      <height>16</height>
+                     </size>
                     </property>
                    </widget>
                   </item>

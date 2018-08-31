@@ -92,10 +92,41 @@
             <number>0</number>
            </property>
            <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_Header" stretch="1,0">
+            <layout class="QHBoxLayout" name="horizontalLayout_Header" stretch="0,0,1">
              <property name="spacing">
               <number>6</number>
              </property>
+             <item>
+              <widget class="QLabel" name="labelOverviewHeaderLogo">
+               <property name="minimumSize">
+                <size>
+                 <width>72</width>
+                 <height>60</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>72</width>
+                 <height>60</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>14</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="labelOverviewHeaderLeft">
+               <property name="text">
+                <string>MONK.OVERVIEW</string>
+               </property>
+              </widget>
+             </item>
              <item>
               <spacer name="horizontalSpacer_Header">
                <property name="orientation">
@@ -108,33 +139,6 @@
                 </size>
                </property>
               </spacer>
-             </item>
-             <item>
-              <widget class="QLabel" name="labelOverviewHeaderRight">
-               <property name="minimumSize">
-                <size>
-                 <width>464</width>
-                 <height>60</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>60</height>
-                </size>
-               </property>
-               <property name="font">
-                <font>
-                 <pointsize>14</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-               </property>
-              </widget>
              </item>
             </layout>
            </item>
@@ -162,7 +166,7 @@
               <number>6</number>
              </property>
              <item>
-              <layout class="QVBoxLayout" name="verticalLayout_left" stretch="0,0">
+              <layout class="QVBoxLayout" name="verticalLayout_left" stretch="0,0,0">
                <item>
                 <widget class="QFrame" name="frameBalances">
                  <property name="frameShape">
@@ -546,6 +550,19 @@
                  </property>
                 </spacer>
                </item>
+               <item>
+                <widget class="QLabel" name="labelOverviewBananas">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>186</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
               </layout>
              </item>
              <item>
@@ -571,7 +588,7 @@
                      <number>3</number>
                     </property>
                     <item>
-                     <widget class="QLabel" name="label_4">
+                     <widget class="QLabel" name="labelRecentTransactions">
                       <property name="minimumSize">
                        <size>
                         <width>0</width>

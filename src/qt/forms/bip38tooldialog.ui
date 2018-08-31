@@ -20,7 +20,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tabBip38Encrypt">
       <attribute name="title">
@@ -64,12 +64,19 @@
            <property name="toolTip">
             <string>Choose previously used address</string>
            </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton{qproperty-icon: url(&quot; &quot;);image: url(:/icons/address-book);}
+QPushButton:hover{image: url(:/icons/address-book_black);}
+QPushButton:pressed{image: url(:/icons/address-book);}</string>
+           </property>
            <property name="text">
             <string/>
            </property>
-           <property name="icon">
-            <iconset resource="../monkey.qrc">
-             <normaloff>:/icons/address-book</normaloff>:/icons/address-book</iconset>
+           <property name="iconSize">
+            <size>
+             <width>16</width>
+             <height>16</height>
+            </size>
            </property>
            <property name="shortcut">
             <string>Alt+A</string>
@@ -84,12 +91,13 @@
            <property name="toolTip">
             <string>Paste address from clipboard</string>
            </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton{qproperty-icon: url(&quot; &quot;);image: url(:/icons/editpaste);}
+QPushButton:hover{image: url(:/icons/editpaste_black);}
+QPushButton:pressed{image: url(:/icons/editpaste);}</string>
+           </property>
            <property name="text">
             <string/>
-           </property>
-           <property name="icon">
-            <iconset resource="../monkey.qrc">
-             <normaloff>:/icons/editpaste</normaloff>:/icons/editpaste</iconset>
            </property>
            <property name="shortcut">
             <string>Alt+P</string>
@@ -151,12 +159,13 @@
            <property name="toolTip">
             <string>Copy the current signature to the system clipboard</string>
            </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton{qproperty-icon: url(&quot; &quot;);image: url(:/icons/editcopy);}
+QPushButton:hover{image: url(:/icons/editcopy_black);}
+QPushButton:pressed{image: url(:/icons/editcopy);}</string>
+           </property>
            <property name="text">
             <string/>
-           </property>
-           <property name="icon">
-            <iconset resource="../monkey.qrc">
-             <normaloff>:/icons/editcopy</normaloff>:/icons/editcopy</iconset>
            </property>
            <property name="autoDefault">
             <bool>false</bool>
@@ -172,12 +181,20 @@
            <property name="toolTip">
             <string>Sign the message to prove you own this MONK address</string>
            </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton{qproperty-icon: url(&quot; &quot;);image: url(:/icons/confirm);}
+QPushButton:hover{image: url(:/icons/confirm_hover);}
+QPushButton:pressed{image: url(:/icons/confirm);}
+QPushButton:disabled{image: url(:/icons/confirm_disabled);}</string>
+           </property>
            <property name="text">
             <string>Encrypt &amp;Key</string>
            </property>
-           <property name="icon">
-            <iconset resource="../monkey.qrc">
-             <normaloff>:/icons/edit</normaloff>:/icons/edit</iconset>
+           <property name="iconSize">
+            <size>
+             <width>32</width>
+             <height>16</height>
+            </size>
            </property>
            <property name="autoDefault">
             <bool>false</bool>
@@ -189,12 +206,20 @@
            <property name="toolTip">
             <string>Reset all sign message fields</string>
            </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton{qproperty-icon: url(&quot; &quot;);image: url(:/icons/remove);}
+QPushButton:hover{image: url(:/icons/remove_black);}
+QPushButton:pressed{image: url(:/icons/remove);}
+QPushButton:disabled{image: url(:/icons/remove_disabled);}</string>
+           </property>
            <property name="text">
             <string>Clear &amp;All</string>
            </property>
-           <property name="icon">
-            <iconset resource="../monkey.qrc">
-             <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
+           <property name="iconSize">
+            <size>
+             <width>32</width>
+             <height>16</height>
+            </size>
            </property>
            <property name="autoDefault">
             <bool>false</bool>
@@ -311,12 +336,20 @@
            <property name="toolTip">
             <string>Verify the message to ensure it was signed with the specified MONK address</string>
            </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton{qproperty-icon: url(&quot; &quot;);image: url(:/icons/confirm);}
+QPushButton:hover{image: url(:/icons/confirm_hover);}
+QPushButton:pressed{image: url(:/icons/confirm);}
+QPushButton:disabled{image: url(:/icons/confirm_disabled);}</string>
+           </property>
            <property name="text">
             <string>Decrypt &amp;Key</string>
            </property>
-           <property name="icon">
-            <iconset resource="../monkey.qrc">
-             <normaloff>:/icons/transaction_0</normaloff>:/icons/transaction_0</iconset>
+           <property name="iconSize">
+            <size>
+             <width>32</width>
+             <height>16</height>
+            </size>
            </property>
            <property name="autoDefault">
             <bool>false</bool>
@@ -328,12 +361,20 @@
            <property name="toolTip">
             <string>Reset all verify message fields</string>
            </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton{qproperty-icon: url(&quot; &quot;);image: url(:/icons/remove);}
+QPushButton:hover{image: url(:/icons/remove_black);}
+QPushButton:pressed{image: url(:/icons/remove);}
+QPushButton:disabled{image: url(:/icons/remove_disabled);}</string>
+           </property>
            <property name="text">
             <string>Clear &amp;All</string>
            </property>
-           <property name="icon">
-            <iconset resource="../monkey.qrc">
-             <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
+           <property name="iconSize">
+            <size>
+             <width>32</width>
+             <height>16</height>
+            </size>
            </property>
            <property name="autoDefault">
             <bool>false</bool>

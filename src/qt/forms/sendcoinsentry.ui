@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>729</width>
-    <height>156</height>
+    <height>172</height>
    </rect>
   </property>
   <property name="focusPolicy">
@@ -65,7 +65,7 @@
         </property>
         <property name="icon">
          <iconset resource="../monkey.qrc">
-          <normaloff>:/icons/address-book</normaloff>:/icons/address-book</iconset>
+          <normaloff>:/icons/address-book_black</normaloff>:/icons/address-book_black</iconset>
         </property>
         <property name="shortcut">
          <string>Alt+A</string>
@@ -82,7 +82,7 @@
         </property>
         <property name="icon">
          <iconset resource="../monkey.qrc">
-          <normaloff>:/icons/editpaste</normaloff>:/icons/editpaste</iconset>
+          <normaloff>:/icons/editpaste_black</normaloff>:/icons/editpaste_black</iconset>
         </property>
         <property name="shortcut">
          <string>Alt+P</string>
@@ -99,7 +99,7 @@
         </property>
         <property name="icon">
          <iconset resource="../monkey.qrc">
-          <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
+          <normaloff>:/icons/remove_black</normaloff>:/icons/remove_black</iconset>
         </property>
        </widget>
       </item>
@@ -128,7 +128,7 @@
     <item row="2" column="0">
      <widget class="QLabel" name="amountLabel">
       <property name="text">
-       <string>A&amp;mount:</string>
+       <string>Amo&amp;unt:</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1185,7 +1185,7 @@
     <item row="2" column="0">
      <widget class="QLabel" name="amountLabel_s">
       <property name="text">
-       <string>A&amp;mount:</string>
+       <string>Amo&amp;unt:</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

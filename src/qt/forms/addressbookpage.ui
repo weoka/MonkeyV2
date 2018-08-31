@@ -93,12 +93,19 @@
        <property name="toolTip">
         <string>Create a new address</string>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{qproperty-icon: url(&quot; &quot;);image: url(:/icons/add);}
+QPushButton:hover{image: url(:/icons/add_hover);}
+QPushButton:pressed{image: url(:/icons/add);}</string>
+       </property>
        <property name="text">
         <string>&amp;New</string>
        </property>
-       <property name="icon">
-        <iconset resource="../monkey.qrc">
-         <normaloff>:/icons/add</normaloff>:/icons/add</iconset>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>16</height>
+        </size>
        </property>
        <property name="autoDefault">
         <bool>false</bool>
@@ -110,12 +117,19 @@
        <property name="toolTip">
         <string>Copy the currently selected address to the system clipboard</string>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{qproperty-icon: url(&quot; &quot;);image: url(:/icons/editcopy);}
+QPushButton:hover{image: url(:/icons/editcopy_black);}
+QPushButton:pressed{image: url(:/icons/editcopy);}</string>
+       </property>
        <property name="text">
         <string>&amp;Copy</string>
        </property>
-       <property name="icon">
-        <iconset resource="../monkey.qrc">
-         <normaloff>:/icons/editcopy</normaloff>:/icons/editcopy</iconset>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>16</height>
+        </size>
        </property>
        <property name="autoDefault">
         <bool>false</bool>
@@ -127,12 +141,20 @@
        <property name="toolTip">
         <string>Delete the currently selected address from the list</string>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{qproperty-icon: url(&quot; &quot;);image: url(:/icons/remove);}
+QPushButton:hover{image: url(:/icons/remove_black);}
+QPushButton:pressed{image: url(:/icons/remove);}
+QPushButton:disabled{image: url(:/icons/remove_disabled);}</string>
+       </property>
        <property name="text">
         <string>&amp;Delete</string>
        </property>
-       <property name="icon">
-        <iconset resource="../monkey.qrc">
-         <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>16</height>
+        </size>
        </property>
        <property name="autoDefault">
         <bool>false</bool>
@@ -144,12 +166,20 @@
        <property name="toolTip">
         <string>Show the currently selected address from the list</string>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{qproperty-icon: url(&quot; &quot;);image: url(:/icons/edit);}
+QPushButton:hover{image: url(:/icons/edit_black);}
+QPushButton:pressed{image: url(:/icons/edit);}
+QPushButton:disabled{image: url(:/icons/edit_disabled);}</string>
+       </property>
        <property name="text">
         <string>&amp;Show</string>
        </property>
-       <property name="icon">
-        <iconset resource="../monkey.qrc">
-         <normaloff>:/icons/edit</normaloff>:/icons/edit</iconset>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>16</height>
+        </size>
        </property>
        <property name="autoDefault">
         <bool>false</bool>
@@ -174,12 +204,20 @@
        <property name="toolTip">
         <string>Export the data in the current tab to a file</string>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{qproperty-icon: url(&quot; &quot;);image: url(:/icons/export);}
+QPushButton:hover{image: url(:/icons/export_hover);}
+QPushButton:pressed{image: url(:/icons/export);}
+QPushButton:disabled{image: url(:/icons/export_disabled);}</string>
+       </property>
        <property name="text">
         <string>&amp;Export</string>
        </property>
-       <property name="icon">
-        <iconset resource="../monkey.qrc">
-         <normaloff>:/icons/export</normaloff>:/icons/export</iconset>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>16</height>
+        </size>
        </property>
        <property name="autoDefault">
         <bool>false</bool>

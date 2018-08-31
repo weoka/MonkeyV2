@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>978</width>
-    <height>710</height>
+    <height>766</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -53,33 +53,27 @@
          <number>0</number>
         </property>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_Header" stretch="1,0,1">
+         <layout class="QHBoxLayout" name="horizontalLayout_Header" stretch="0,1,0">
           <property name="spacing">
            <number>6</number>
           </property>
           <item>
-           <widget class="QLabel" name="labelOverviewHeaderLeft">
+           <widget class="QLabel" name="labelOverviewHeaderLogo">
             <property name="minimumSize">
              <size>
-              <width>464</width>
+              <width>72</width>
               <height>60</height>
              </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>60</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>20</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
             </property>
             <property name="text">
-             <string>SEND</string>
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelOverviewHeaderLeft">
+            <property name="text">
+             <string>MONK.SEND</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -98,33 +92,6 @@
              </size>
             </property>
            </spacer>
-          </item>
-          <item>
-           <widget class="QLabel" name="labelOverviewHeaderRight">
-            <property name="minimumSize">
-             <size>
-              <width>464</width>
-              <height>60</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>60</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>14</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
           </item>
          </layout>
         </item>
@@ -816,6 +783,9 @@
                 </item>
                 <item>
                  <widget class="QLineEdit" name="splitBlockLineEdit">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                     <horstretch>50</horstretch>
@@ -897,8 +867,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>944</width>
-             <height>73</height>
+             <width>948</width>
+             <height>80</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,1">
@@ -1196,7 +1166,7 @@
                          <string>If the custom fee is set to 1000 uMONKs and the transaction is only 250 bytes, then &quot;per kilobyte&quot; only pays 250 uMONKs in fee,&lt;br /&gt;while &quot;at least&quot; pays 1000 uMONKs. For transactions bigger than a kilobyte both pay by kilobyte.</string>
                         </property>
                         <property name="text">
-                         <string>per kilobyte</string>
+                         <string>per &amp;kilobyte</string>
                         </property>
                         <property name="checked">
                          <bool>true</bool>
@@ -1212,7 +1182,7 @@
                          <string>If the custom fee is set to 1000 uMONKs and the transaction is only 250 bytes, then &quot;per kilobyte&quot; only pays 250 uMONKs in fee,&lt;br /&gt;while &quot;total at least&quot; pays 1000 uMONKs. For transactions bigger than a kilobyte both pay by kilobyte.</string>
                         </property>
                         <property name="text">
-                         <string>total at least</string>
+                         <string>&amp;total at least</string>
                         </property>
                         <attribute name="buttonGroup">
                          <string notr="true">groupCustomFee</string>
@@ -1607,12 +1577,19 @@
              <property name="toolTip">
               <string>Confirm the send action</string>
              </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{qproperty-icon: url(&quot; &quot;);image: url(:/icons/confirm);}
+QPushButton:hover{image: url(:/icons/confirm_hover);}
+QPushButton:pressed{image: url(:/icons/confirm);}</string>
+             </property>
              <property name="text">
               <string>S&amp;end</string>
              </property>
-             <property name="icon">
-              <iconset resource="../monkey.qrc">
-               <normaloff>:/icons/send</normaloff>:/icons/send</iconset>
+             <property name="iconSize">
+              <size>
+               <width>32</width>
+               <height>16</height>
+              </size>
              </property>
              <property name="autoDefault">
               <bool>false</bool>
@@ -1633,12 +1610,18 @@
              <property name="toolTip">
               <string>Clear all fields of the form.</string>
              </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{qproperty-icon: url(&quot; &quot;);image: url(:/icons/remove);}\nQPushButton:hover{image: url(:/icons/remove_black);}\nQPushButton:pressed{image: url(:/icons/remove);}\nQPushButton:disabled{image: url(:/icons/remove_disabled);}
+</string>
+             </property>
              <property name="text">
               <string>Clear &amp;All</string>
              </property>
-             <property name="icon">
-              <iconset resource="../monkey.qrc">
-               <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
+             <property name="iconSize">
+              <size>
+               <width>32</width>
+               <height>16</height>
+              </size>
              </property>
              <property name="autoDefault">
               <bool>false</bool>
@@ -1650,12 +1633,17 @@
              <property name="toolTip">
               <string>Send to multiple recipients at once</string>
              </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{qproperty-icon: url(&quot; &quot;);image: url(:/icons/add);}\nQPushButton:hover{image: url(:/icons/add_hover);}\nQPushButton:pressed{image: url(:/icons/add);}</string>
+             </property>
              <property name="text">
               <string>Add &amp;Recipient</string>
              </property>
-             <property name="icon">
-              <iconset resource="../monkey.qrc">
-               <normaloff>:/icons/add</normaloff>:/icons/add</iconset>
+             <property name="iconSize">
+              <size>
+               <width>32</width>
+               <height>16</height>
+              </size>
              </property>
              <property name="autoDefault">
               <bool>false</bool>
@@ -1752,7 +1740,7 @@
  </resources>
  <connections/>
  <buttongroups>
-  <buttongroup name="groupFee"/>
   <buttongroup name="groupCustomFee"/>
+  <buttongroup name="groupFee"/>
  </buttongroups>
 </ui>
