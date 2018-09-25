@@ -103,22 +103,66 @@ void MultisigDialog::pasteText()
 //slot for deleting QFrames with the delete buttons
 void MultisigDialog::deleteFrame()
 {
-   QWidget *buttonWidget = qobject_cast<QWidget*>(sender());
-   if(!buttonWidget)return;
+    QWidget *buttonWidget = qobject_cast<QWidget*>(sender());
+    if (!buttonWidget)return;
 
-   //if deleting last raw input/priv key, hide scroll area
-   if(buttonWidget->objectName() == "inputDeleteButton" && ui->inputsList->count() == 1){
-       isFirstRawTx = true;
-       ui->txInputsScrollArea->hide();
-   }else if(buttonWidget->objectName() == "keyDeleteButton" && ui->keyList->count() == 1){
-       isFirstPrivKey = true;
-       ui->keyScrollArea->hide();
-   }
+    //if deleting last raw input/priv key, hide scroll area
+    if (buttonWidget->objectName() == "inputDeleteButton" && ui->inputsList->count() == 1) {
+        isFirstRawTx = true;
+        ui->txInputsScrollArea->hide();
+    } else if(buttonWidget->objectName() == "keyDeleteButton" && ui->keyList->count() == 1) {
+        isFirstPrivKey = true;
+        ui->keyScrollArea->hide();
+    }
 
-   QFrame* frame = qobject_cast<QFrame*>(buttonWidget->parentWidget());
-   if(!frame)return;
+    QFrame* frame = qobject_cast<QFrame*>(buttonWidget->parentWidget());
+    if(!frame)return;
 
-   delete frame;
+    //figure out which frame was updated so we can update the correct list
+    bool destinationFrame = false, addressFrame = false, keyFrame = false, txInputFrame = false;
+
+    if (frame->objectName() == QString::fromStdString("destinationFrame"))
+        destinationFrame = true;
+    else if (frame->objectName() == QString::fromStdString("addressFrame"))
+        addressFrame = true;
+    else if (frame->objectName() == QString::fromStdString("keyFrame"))
+        keyFrame = true;
+    else if (frame->objectName() == QString::fromStdString("txInputFrame"))
+        txInputFrame = true;
+
+    delete frame;
+
+    //update the correct list inputs
+    //using else-if instead of else to stop accidental Seg faults
+    //if method is called on a frame that isn't a destinationFrame, addressFrame, keyFrame, txInputFrame
+    if (addressFrame) {
+        for (int i = 0; i < ui->addressList->count(); i++) {
+            QWidget *input = qobject_cast<QWidget *>(ui->addressList->itemAt(i)->widget());
+            QLabel *addressLabel = input->findChild<QLabel *>("addressLabel");
+            addressLabel->setText(QApplication::translate("MultisigDialog", strprintf("Address / Key %i:", i + 1).c_str(), 0));
+        }
+    }
+    else if (destinationFrame) {
+        for (int i = 0; i < ui->destinationsList->count(); i++) {
+            QWidget *input = qobject_cast<QWidget *>(ui->destinationsList->itemAt(i)->widget());
+            QLabel *destinationAddressLabel = input->findChild<QLabel *>("destinationAddressLabel");
+            destinationAddressLabel->setText(QApplication::translate("MultisigDialog", strprintf("%i. Address: ", i + 1).c_str(), 0));
+        }
+    }
+    else if (keyFrame) {
+        for (int i = 0; i < ui->keyList->count(); i++) {
+            QWidget *input = qobject_cast<QWidget *>(ui->keyList->itemAt(i)->widget());
+            QLabel *keyListLabel = input->findChild<QLabel *>("keyLabel");
+            keyListLabel->setText(QApplication::translate("MultisigDialog", strprintf("Key %i: ", i + 1).c_str(), 0));
+        }
+    }
+    else if (txInputFrame) {
+        for (int i = 0; i < ui->inputsList->count(); i++) {
+            QWidget *input = qobject_cast<QWidget *>(ui->inputsList->itemAt(i)->widget());
+            QLabel *txInputIdLabel = input->findChild<QLabel *>("txInputIdLabel");
+            txInputIdLabel->setText(QApplication::translate("MultisigDialog", strprintf("%i. Tx Hash: ", i + 1).c_str(), 0));
+        }
+    }
 }
 
 //slot to open address book dialog
@@ -816,7 +860,7 @@ void MultisigDialog::on_addAddressButton_clicked()
     frameLayout->setContentsMargins(6, 6, 6, 6);
 
     QHBoxLayout* addressLayout = new QHBoxLayout();
-    addressLayout->setSpacing(0);
+    addressLayout->setSpacing(2);
     addressLayout->setObjectName(QStringLiteral("addressLayout"));
 
     QLabel* addressLabel = new QLabel(addressFrame);
@@ -828,31 +872,28 @@ void MultisigDialog::on_addAddressButton_clicked()
     address->setObjectName(QStringLiteral("address"));
     addressLayout->addWidget(address);
 
-    QPushButton* addressBookButton = new QPushButton(addressFrame);
+    QToolButton* addressBookButton = new QToolButton(addressFrame);
     addressBookButton->setObjectName(QStringLiteral("addressBookButton"));
-    addressBookButton->setStyleSheet("QPushButton{qproperty-icon: url(\" \");image: url(:/icons/address-book);}\nQPushButton:hover{image: url(:/icons/address-book_black);}\nQPushButton:pressed{image: url(:/icons/address-book);}");
+    addressBookButton->setStyleSheet("QToolButton{qproperty-icon: url(\" \");image: url(:/icons/address-book);}\nQToolButton:hover{image: url(:/icons/address-book_black);}\nQToolButton:pressed{image: url(:/icons/address-book);}");
     addressBookButton->setToolTip(tr("Choose an address from the address book"));
-    addressBookButton->setAutoDefault(false);
     connect(addressBookButton, SIGNAL(clicked()), this, SLOT(addressBookButtonReceiving()));
     addressLayout->addWidget(addressBookButton);
 
-    QPushButton* addressPasteButton = new QPushButton(addressFrame);
+    QToolButton* addressPasteButton = new QToolButton(addressFrame);
     addressPasteButton->setObjectName(QStringLiteral("addressPasteButton"));
-    addressPasteButton->setStyleSheet("QPushButton{qproperty-icon: url(\" \");image: url(:/icons/editpaste);}\nQPushButton:hover{image: url(:/icons/editpaste_black);}\nQPushButton:pressed{image: url(:/icons/editpaste);}");
+    addressPasteButton->setStyleSheet("QToolButton{qproperty-icon: url(\" \");image: url(:/icons/editpaste);}\nQToolButton:hover{image: url(:/icons/editpaste_black);}\nQToolButton:pressed{image: url(:/icons/editpaste);}");
     addressPasteButton->setToolTip(tr("Paste address from clipboard"));
-    addressPasteButton->setAutoDefault(false);
     connect(addressPasteButton, SIGNAL(clicked()), this, SLOT(pasteText()));
     addressLayout->addWidget(addressPasteButton);
 
-    QPushButton* addressDeleteButton = new QPushButton(addressFrame);
+    QToolButton* addressDeleteButton = new QToolButton(addressFrame);
     addressDeleteButton->setObjectName(QStringLiteral("addressDeleteButton"));
-    addressDeleteButton->setStyleSheet("QPushButton{qproperty-icon: url(\" \");image: url(:/icons/remove);}\nQPushButton:hover{image: url(:/icons/remove_black);}\nQPushButton:pressed{image: url(:/icons/remove);}");
+    addressDeleteButton->setStyleSheet("QToolButton{qproperty-icon: url(\" \");image: url(:/icons/remove);}\nQToolButton:hover{image: url(:/icons/remove_black);}\nQToolButton:pressed{image: url(:/icons/remove);}");
     addressDeleteButton->setToolTip(tr("Reset all fields"));
-    addressDeleteButton->setAutoDefault(false);
     connect(addressDeleteButton, SIGNAL(clicked()), this, SLOT(deleteFrame()));
     addressLayout->addWidget(addressDeleteButton);
-
     frameLayout->addLayout(addressLayout);
+
     ui->addressList->addWidget(addressFrame);
 }
 
@@ -885,6 +926,7 @@ void MultisigDialog::on_addInputButton_clicked()
     frameLayout->setContentsMargins(6, 6, 6, 6);
 
     QHBoxLayout* txInputLayout = new QHBoxLayout();
+    txInputLayout->setSpacing(2);
     txInputLayout->setObjectName(QStringLiteral("txInputLayout"));
 
     QLabel* txInputIdLabel = new QLabel(txInputFrame);
@@ -912,10 +954,9 @@ void MultisigDialog::on_addInputButton_clicked()
     txInputVout->setSizePolicy(sizePolicy);
     txInputLayout->addWidget(txInputVout);
 
-    QPushButton* inputDeleteButton = new QPushButton(txInputFrame);
+    QToolButton* inputDeleteButton = new QToolButton(txInputFrame);
     inputDeleteButton->setObjectName(QStringLiteral("inputDeleteButton"));
-    inputDeleteButton->setStyleSheet("QPushButton{qproperty-icon: url(\" \");image: url(:/icons/remove);}\nQPushButton:hover{image: url(:/icons/remove_black);}\nQPushButton:pressed{image: url(:/icons/remove);}");
-    inputDeleteButton->setAutoDefault(false);
+    inputDeleteButton->setStyleSheet("QToolButton{qproperty-icon: url(\" \");image: url(:/icons/remove);}\nQToolButton:hover{image: url(:/icons/remove_black);}\nQToolButton:pressed{image: url(:/icons/remove);}");
     connect(inputDeleteButton, SIGNAL(clicked()), this, SLOT(deleteFrame()));
     txInputLayout->addWidget(inputDeleteButton);
 
@@ -962,10 +1003,9 @@ void MultisigDialog::on_addDestinationButton_clicked()
 
     destinationLayout->addWidget(destinationAmount);
 
-    QPushButton* destinationDeleteButton = new QPushButton(destinationFrame);
+    QToolButton* destinationDeleteButton = new QToolButton(destinationFrame);
     destinationDeleteButton->setObjectName(QStringLiteral("destinationDeleteButton"));
-    destinationDeleteButton->setStyleSheet("QPushButton{qproperty-icon: url(\" \");image: url(:/icons/remove);}\nQPushButton:hover{image: url(:/icons/remove_black);}\nQPushButton:pressed{image: url(:/icons/remove);}");
-    destinationDeleteButton->setAutoDefault(false);
+    destinationDeleteButton->setStyleSheet("QToolButton{qproperty-icon: url(\" \");image: url(:/icons/remove);}\nQToolButton:hover{image: url(:/icons/remove_black);}\nQToolButton:pressed{image: url(:/icons/remove);}");
     connect(destinationDeleteButton, SIGNAL(clicked()), this, SLOT(deleteFrame()));
     destinationLayout->addWidget(destinationDeleteButton);
 
@@ -981,7 +1021,7 @@ void MultisigDialog::on_addPrivKeyButton_clicked()
         ui->keyScrollArea->show();
     }
 
-    if(ui->keyList->count() > 14){
+    if(ui->keyList->count() >= 15){
         ui->signButtonStatus->setStyleSheet("QTextEdit{ color: red }");
         ui->signButtonStatus->setText(tr("Maximum (15)"));
         return;
@@ -1006,10 +1046,9 @@ void MultisigDialog::on_addPrivKeyButton_clicked()
     key->setEchoMode(QLineEdit::Password);
     keyLayout->addWidget(key);
 
-    QPushButton* keyDeleteButton = new QPushButton(keyFrame);
+    QToolButton* keyDeleteButton = new QToolButton(keyFrame);
     keyDeleteButton->setObjectName(QStringLiteral("keyDeleteButton"));
-    keyDeleteButton->setStyleSheet("QPushButton{qproperty-icon: url(\" \");image: url(:/icons/remove);}\nQPushButton:hover{image: url(:/icons/remove_black);}\nQPushButton:pressed{image: url(:/icons/remove);}");
-    keyDeleteButton->setAutoDefault(false);
+    keyDeleteButton->setStyleSheet("QToolButton{qproperty-icon: url(\" \");image: url(:/icons/remove);}\nQToolButton:hover{image: url(:/icons/remove_black);}\nQToolButton:pressed{image: url(:/icons/remove);}");
     connect(keyDeleteButton, SIGNAL(clicked()), this, SLOT(deleteFrame()));
     keyLayout->addWidget(keyDeleteButton);
 
