@@ -315,7 +315,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="../bitcoingreen.qrc">
+            <iconset resource="../monkey.qrc">
              <normaloff>:/icons/editpaste</normaloff>:/icons/editpaste</iconset>
            </property>
            <property name="shortcut">
