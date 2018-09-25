@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>729</width>
-    <height>172</height>
+    <height>156</height>
    </rect>
   </property>
   <property name="focusPolicy">
@@ -128,7 +128,7 @@
     <item row="2" column="0">
      <widget class="QLabel" name="amountLabel">
       <property name="text">
-       <string>Amo&amp;unt:</string>
+       <string>A&amp;mount:</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1185,7 +1185,7 @@
     <item row="2" column="0">
      <widget class="QLabel" name="amountLabel_s">
       <property name="text">
-       <string>Amo&amp;unt:</string>
+       <string>A&amp;mount:</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
