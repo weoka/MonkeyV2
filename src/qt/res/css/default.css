@@ -923,7 +923,7 @@ QWidget .QFrame#frameBalances #lineBalances { /* MONK Balances Line separator */
 
 
 QWidget .QFrame#frameBalances .QLabel#labelTotal, /* Total Balance */
-QWidget .QFrame#frameBalances .QLabel#labelBalance { /* Available Balance */
+QWidget .QFrame#frameBalances .QLabel#labelAvailable { /* Available Balance */
 	qproperty-alignment: 'AlignVCenter | AlignLeft';
 	font-size: 14px;
 	font-weight: normal;
