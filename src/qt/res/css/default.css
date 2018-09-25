@@ -695,7 +695,9 @@ QWidget#AddressBookPage QHeaderView::section { /* Min width for Windows fix */
 /**************************** SETTINGS MENU *********************************************/
 
 /* Encrypt Wallet and Change Passphrase Dialog */
-QDialog#AskPassphraseDialog QLabel#passLabel1, QDialog#AskPassphraseDialog QLabel#passLabel2, QDialog#AskPassphraseDialog QLabel#passLabel3 {
+QDialog#AskPassphraseDialog QLabel#passLabel1,
+QDialog#AskPassphraseDialog QLabel#passLabel2,
+QDialog#AskPassphraseDialog QLabel#passLabel3 {
 	qproperty-alignment: 'AlignVCenter | AlignRight';
 }
 
@@ -1064,25 +1066,113 @@ QStackedWidget#SendCoinsEntry .QFrame#SendCoins > .QLabel { /* Send Coin Entry L
 /* QStackedWidget#SendCoinsEntry .QValidatedLineEdit#payTo { /* Pay To Input Field */
 /* QStackedWidget#SendCoinsEntry .QValidatedLineEdit#payTo:!focus { /* Pay To Input Field */
 
-QStackedWidget#SendCoinsEntry .QToolButton { /* General Settings for Pay To Icons */
-	/* background: rgba(0, 0, 0, 0%); */
-	background: transparent;
+QStackedWidget#SendCoinsEntry .QToolButton, /* General Settings for Pay To Icons */
+QDialog#Bip38ToolDialog .QToolButton,
+QDialog#MultiSendDialog .QToolButton,
+QDialog#SignVerifyMessageDialog .QToolButton,
+QDialog#MultisigDialog .QToolButton {
+	background: #000;
 	font-size: 12px;
 	font-weight: bold;
 	margin: 2px;
 	border: 0;
 }
 
-QStackedWidget#SendCoinsEntry .QToolButton:hover { /* General Settings for Pay To Icons */
+QStackedWidget#SendCoinsEntry .QToolButton:hover, /* General Settings for Pay To Icons */
+QDialog#Bip38ToolDialog .QToolButton:hover,
+QDialog#MultiSendDialog .QToolButton:hover,
+QDialog#SignVerifyMessageDialog .QToolButton:hover {
 	border: 1px solid #000;
+	background: #fffe03;
 }
 
-QStackedWidget#SendCoinsEntry .QToolButton:focus { /* General Settings for Pay To Icons */
+QStackedWidget#SendCoinsEntry .QToolButton:focus, /* General Settings for Pay To Icons */
+QDialog#Bip38ToolDialog .QToolButton:focus,
+QDialog#MultiSendDialog .QToolButton:focus,
+QDialog#SignVerifyMessageDialog .QToolButton:focus,
+QDialog#MultisigDialog .QToolButton:hover {
 }
 
-QStackedWidget#SendCoinsEntry .QToolButton:pressed { /* General Settings for Pay To Icons */
-	border: 1px solid #000;
+QStackedWidget#SendCoinsEntry .QToolButton:pressed, /* General Settings for Pay To Icons */
+QDialog#Bip38ToolDialog .QToolButton:pressed,
+QDialog#MultiSendDialog .QToolButton:pressed,
+QDialog#SignVerifyMessageDialog .QToolButton:pressed,
+QDialog#MultisigDialog .QToolButton:pressed {
+	background: #000;
 }
+
+QDialog#Bip38ToolDialog .QToolButton#addressBookButton_ENC,
+QDialog#Bip38ToolDialog .QToolButton#addressBookButton_ENC:pressed {
+	qproperty-icon: url("");
+	image: url(:/icons/address-book);
+}
+
+QDialog#Bip38ToolDialog .QToolButton#addressBookButton_ENC:hover {
+	image: url(:/icons/address-book_black);
+}
+
+QDialog#Bip38ToolDialog .QToolButton#pasteButton_ENC,
+QDialog#Bip38ToolDialog .QToolButton#pasteButton_ENC:pressed {
+	qproperty-icon: url("");
+	image: url(:/icons/editpaste);
+}
+
+QDialog#Bip38ToolDialog .QToolButton#pasteButton_ENC:hover {
+	image: url(:/icons/editpaste_black);
+}
+
+QDialog#Bip38ToolDialog .QToolButton#copyKeyButton_ENC,
+QDialog#Bip38ToolDialog .QToolButton#copyKeyButton_ENC:pressed {
+	qproperty-icon: url("");
+	image: url(:/icons/editcopy);
+}
+
+QDialog#Bip38ToolDialog .QToolButton#copyKeyButton_ENC:hover {
+	image: url(:/icons/editcopy_black);
+}
+
+QDialog#Bip38ToolDialog .QToolButton#encryptKeyButton_ENC,
+QDialog#Bip38ToolDialog .QToolButton#encryptKeyButton_ENC:pressed {
+	qproperty-icon: url("");
+	image: url(:/icons/confirm);
+}
+
+QDialog#Bip38ToolDialog .QToolButton#encryptKeyButton_ENC:hover {
+	image: url(:/icons/confirm_hover);
+}
+
+QDialog#Bip38ToolDialog .QToolButton#encryptKeyButton_ENC:disabled {
+	image: url(:/icons/confirm_disabled);
+}
+
+QDialog#Bip38ToolDialog .QToolButton#clearButton_ENC,
+QDialog#Bip38ToolDialog .QToolButton#clearButton_ENC:pressed {
+	qproperty-icon: url("");
+	image: url(:/icons/remove);
+}
+
+QDialog#Bip38ToolDialog .QToolButton#clearButton_ENC:hover {
+	image: url(:/icons/remove_black);
+}
+
+QDialog#Bip38ToolDialog .QToolButton#clearButton_ENC:disabled {
+	image: url(:/icons/remove_disabled);
+}
+
+QDialog#Bip38ToolDialog .QToolButton#decryptKeyButton_DEC,
+QDialog#Bip38ToolDialog .QToolButton#decryptKeyButton_DEC:pressed {
+	qproperty-icon: url("");
+	image: url(:/icons/confirm);
+}
+
+QDialog#Bip38ToolDialog .QToolButton#decryptKeyButton_DEC:hover {
+	image: url(:/icons/confirm_hover);
+}
+
+QDialog#Bip38ToolDialog .QToolButton#decryptKeyButton_DEC:disabled {
+	image: url(:/icons/confirm_disabled);
+}
+
 
 /* QStackedWidget#SendCoinsEntry .QToolButton#addressBookButton { /* Address Book Button */
 /* QStackedWidget#SendCoinsEntry .QToolButton#addressBookButton { */

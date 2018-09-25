@@ -20,7 +20,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tabBip38Encrypt">
       <attribute name="title">
@@ -42,11 +42,17 @@
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_1_ENC">
-         <property name="spacing">
-          <number>0</number>
-         </property>
          <item>
           <widget class="QLabel" name="label_5">
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>85</width>
+             <height>0</height>
+            </size>
+           </property>
            <property name="text">
             <string>Address:</string>
            </property>
@@ -55,19 +61,14 @@
          <item>
           <widget class="QValidatedLineEdit" name="addressIn_ENC">
            <property name="toolTip">
-            <string>The MONK address to sign the message with</string>
+            <string>The MONK address to encrypt</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="addressBookButton_ENC">
+          <widget class="QToolButton" name="addressBookButton_ENC">
            <property name="toolTip">
             <string>Choose previously used address</string>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton{qproperty-icon: url(&quot; &quot;);image: url(:/icons/address-book);}
-QPushButton:hover{image: url(:/icons/address-book_black);}
-QPushButton:pressed{image: url(:/icons/address-book);}</string>
            </property>
            <property name="text">
             <string/>
@@ -81,29 +82,18 @@ QPushButton:pressed{image: url(:/icons/address-book);}</string>
            <property name="shortcut">
             <string>Alt+A</string>
            </property>
-           <property name="autoDefault">
-            <bool>false</bool>
-           </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pasteButton_ENC">
+          <widget class="QToolButton" name="pasteButton_ENC">
            <property name="toolTip">
             <string>Paste address from clipboard</string>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton{qproperty-icon: url(&quot; &quot;);image: url(:/icons/editpaste);}
-QPushButton:hover{image: url(:/icons/editpaste_black);}
-QPushButton:pressed{image: url(:/icons/editpaste);}</string>
            </property>
            <property name="text">
             <string/>
            </property>
            <property name="shortcut">
             <string>Alt+P</string>
-           </property>
-           <property name="autoDefault">
-            <bool>false</bool>
            </property>
           </widget>
          </item>
@@ -113,6 +103,15 @@ QPushButton:pressed{image: url(:/icons/editpaste);}</string>
         <layout class="QHBoxLayout" name="horizontalLayout_5">
          <item>
           <widget class="QLabel" name="label_6">
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>85</width>
+             <height>0</height>
+            </size>
+           </property>
            <property name="text">
             <string>Passphrase: </string>
            </property>
@@ -129,11 +128,17 @@ QPushButton:pressed{image: url(:/icons/editpaste);}</string>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2_ENC">
-         <property name="spacing">
-          <number>0</number>
-         </property>
          <item>
           <widget class="QLabel" name="encryptedKeyLabel_ENC">
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>85</width>
+             <height>0</height>
+            </size>
+           </property>
            <property name="text">
             <string>Encrypted Key:</string>
            </property>
@@ -155,20 +160,18 @@ QPushButton:pressed{image: url(:/icons/editpaste);}</string>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="copyKeyButton_ENC">
+          <widget class="QToolButton" name="copyKeyButton_ENC">
            <property name="toolTip">
             <string>Copy the current signature to the system clipboard</string>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton{qproperty-icon: url(&quot; &quot;);image: url(:/icons/editcopy);}
-QPushButton:hover{image: url(:/icons/editcopy_black);}
-QPushButton:pressed{image: url(:/icons/editcopy);}</string>
            </property>
            <property name="text">
             <string/>
            </property>
-           <property name="autoDefault">
-            <bool>false</bool>
+           <property name="iconSize">
+            <size>
+             <width>16</width>
+             <height>16</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -179,13 +182,7 @@ QPushButton:pressed{image: url(:/icons/editcopy);}</string>
          <item>
           <widget class="QPushButton" name="encryptKeyButton_ENC">
            <property name="toolTip">
-            <string>Sign the message to prove you own this MONK address</string>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton{qproperty-icon: url(&quot; &quot;);image: url(:/icons/confirm);}
-QPushButton:hover{image: url(:/icons/confirm_hover);}
-QPushButton:pressed{image: url(:/icons/confirm);}
-QPushButton:disabled{image: url(:/icons/confirm_disabled);}</string>
+            <string>Encrypt the private key for this MONK address</string>
            </property>
            <property name="text">
             <string>Encrypt &amp;Key</string>
@@ -204,13 +201,7 @@ QPushButton:disabled{image: url(:/icons/confirm_disabled);}</string>
          <item>
           <widget class="QPushButton" name="clearButton_ENC">
            <property name="toolTip">
-            <string>Reset all sign message fields</string>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton{qproperty-icon: url(&quot; &quot;);image: url(:/icons/remove);}
-QPushButton:hover{image: url(:/icons/remove_black);}
-QPushButton:pressed{image: url(:/icons/remove);}
-QPushButton:disabled{image: url(:/icons/remove_disabled);}</string>
+            <string>Reset all fields</string>
            </property>
            <property name="text">
             <string>Clear &amp;All</string>
@@ -285,9 +276,6 @@ QPushButton:disabled{image: url(:/icons/remove_disabled);}</string>
          <property name="textFormat">
           <enum>Qt::PlainText</enum>
          </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-         </property>
          <property name="wordWrap">
           <bool>true</bool>
          </property>
@@ -297,6 +285,15 @@ QPushButton:disabled{image: url(:/icons/remove_disabled);}</string>
         <layout class="QHBoxLayout" name="horizontalLayout_3">
          <item>
           <widget class="QLabel" name="label_2">
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>85</width>
+             <height>0</height>
+            </size>
+           </property>
            <property name="text">
             <string>Encrypted Key:</string>
            </property>
@@ -305,7 +302,24 @@ QPushButton:disabled{image: url(:/icons/remove_disabled);}</string>
          <item>
           <widget class="QValidatedLineEdit" name="encryptedKeyIn_DEC">
            <property name="toolTip">
-            <string>The MONK address the message was signed with</string>
+            <string>The encrypted private key</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="pasteButton_DEC">
+           <property name="toolTip">
+            <string>Paste address from clipboard</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="../bitcoingreen.qrc">
+             <normaloff>:/icons/editpaste</normaloff>:/icons/editpaste</iconset>
+           </property>
+           <property name="shortcut">
+            <string>Alt+P</string>
            </property>
           </widget>
          </item>
@@ -315,6 +329,15 @@ QPushButton:disabled{image: url(:/icons/remove_disabled);}</string>
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
           <widget class="QLabel" name="label">
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>85</width>
+             <height>0</height>
+            </size>
+           </property>
            <property name="text">
             <string>Passphrase: </string>
            </property>
@@ -334,13 +357,7 @@ QPushButton:disabled{image: url(:/icons/remove_disabled);}</string>
          <item>
           <widget class="QPushButton" name="decryptKeyButton_DEC">
            <property name="toolTip">
-            <string>Verify the message to ensure it was signed with the specified MONK address</string>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton{qproperty-icon: url(&quot; &quot;);image: url(:/icons/confirm);}
-QPushButton:hover{image: url(:/icons/confirm_hover);}
-QPushButton:pressed{image: url(:/icons/confirm);}
-QPushButton:disabled{image: url(:/icons/confirm_disabled);}</string>
+            <string>Decrypt the entered key using the passphrase</string>
            </property>
            <property name="text">
             <string>Decrypt &amp;Key</string>
@@ -359,13 +376,7 @@ QPushButton:disabled{image: url(:/icons/confirm_disabled);}</string>
          <item>
           <widget class="QPushButton" name="clearButton_DEC">
            <property name="toolTip">
-            <string>Reset all verify message fields</string>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton{qproperty-icon: url(&quot; &quot;);image: url(:/icons/remove);}
-QPushButton:hover{image: url(:/icons/remove_black);}
-QPushButton:pressed{image: url(:/icons/remove);}
-QPushButton:disabled{image: url(:/icons/remove_disabled);}</string>
+            <string>Reset all fields</string>
            </property>
            <property name="text">
             <string>Clear &amp;All</string>
