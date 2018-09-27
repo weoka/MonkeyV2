@@ -5224,6 +5224,10 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
 //       it was the one which was commented out
 int ActiveProtocol()
 {
+    // SPORK_14 is used for 70913 (v2.3.0+)
+    if (IsSporkActive(SPORK_14_NEW_PROTOCOL_ENFORCEMENT))
+        return MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT;
+
     return MIN_PEER_PROTO_VERSION;
 }
 
