@@ -295,8 +295,10 @@ public:
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 1;
         nTargetTimespan = 24 * 60 * 60; // Monkey: 1 day
-        nTargetSpacing = 2 * 60;        // Monkey: 1 minutes
+        nTargetSpacing = 1 * 60;        // Monkey: 1 minutes
         bnProofOfWorkLimit = ~uint256(0) >> 1;
+       	nLastPOWBlock = 250;
+    	nMaturity = 10;
         genesis.nTime = 1532542535;
         genesis.nBits = 0x207fffff;
         genesis.nNonce = 20542300;
@@ -313,6 +315,7 @@ public:
         fDefaultConsistencyChecks = true;
         fRequireStandard = false;
         fMineBlocksOnDemand = true;
+       	fSkipProofOfWorkCheck = true;
         fTestnetToBeDeprecatedFieldRPC = false;
     }
     const Checkpoints::CCheckpointData& Checkpoints() const
