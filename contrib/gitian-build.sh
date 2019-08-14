@@ -314,7 +314,7 @@ then
 	    ./bin/gbuild -j ${proc} -m ${mem} --commit monkey=${COMMIT} --url monkey=${url} ../monkey/contrib/gitian-descriptors/gitian-aarch64.yml
 	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-aarch64 --destination ../gitian.sigs/ ../monkey/contrib/gitian-descriptors/gitian-aarch64.yml
 	    mv build/out/monkey-*.tar.gz build/out/src/monkey-*.tar.gz ../monkey-binaries/${VERSION}
-	popd
+	fi
 
         if [[ $commitFiles = true ]]
         then
