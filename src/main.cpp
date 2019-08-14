@@ -1551,7 +1551,8 @@ double ConvertBitsToDouble(unsigned int nBits)
 int64_t GetBlockValue(int nHeight)
 {
     int64_t nSubsidy = 0;
-
+    if (Params().NetworkID() == CBaseChainParams::REGTEST) 
+        return 50 * COIN; 
     if (nHeight == 0)
         nSubsidy = 2160000 * COIN;
     else if (nHeight <= 5000)
@@ -2984,7 +2985,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
 
     // Check timestamp
     LogPrint("debug", "%s: block=%s  is proof of stake=%d\n", __func__, block.GetHash().ToString().c_str(), block.IsProofOfStake());
-    if (block.GetBlockTime() > GetAdjustedTime() + (block.IsProofOfStake() ? 180 : 7200)) // 3 minute future drift for PoS
+    if (Params().NetworkID() != CBaseChainParams::REGTEST && block.GetBlockTime() > GetAdjustedTime() + (block.IsProofOfStake() ? 180 : 7200)) // 3 minute future drift for PoS
         return state.Invalid(error("CheckBlock() : block timestamp too far in the future"),
             REJECT_INVALID, "time-too-new");
 
@@ -3110,7 +3111,7 @@ bool CheckWork(const CBlock block, CBlockIndex* const pindexPrev)
 
     unsigned int nBitsRequired = GetNextWorkRequired(pindexPrev, &block);
 
-    if (block.IsProofOfWork() && (pindexPrev->nHeight + 1 <= Params().LAST_POW_BLOCK())) {
+    if (Params().NetworkID() != CBaseChainParams::REGTEST && block.IsProofOfWork() && (pindexPrev->nHeight + 1 <= Params().LAST_POW_BLOCK())) {
         double n1 = ConvertBitsToDouble(block.nBits);
         double n2 = ConvertBitsToDouble(nBitsRequired);
 
